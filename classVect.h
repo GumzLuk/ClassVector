@@ -10,7 +10,9 @@ class vector{
        vector(); 
      //GETTERS
       int getDimension();
+
       double getElemen(int unsigned pos);
+			double mayorElem();
      //SETTERS
       void setDimension(int unsigned dim2);
       void modElemen(int unsigned pos, double ele);
@@ -23,22 +25,8 @@ class vector{
  vector::vector(){
    dimension = 0;
  }
-
-//getters
-
- int vector::getDimension(){
-  return dimension; 
- }
-
- double vector::getElemen(int unsigned pos){
-	if(pos>=0 && pos<=dimension){
-    return elementos[pos];
-	}else{
-		return 99999;
-	}
- }
-
-//setters
+ 
+ //setters
 
  void vector::setDimension(int unsigned dim2){
  	 if(dim2>=0 && dim2<=MAXE){
@@ -69,4 +57,28 @@ class vector{
 	       this->elementos[i] = this->elementos[i-1];    			 
 			 }
 	 }   
+ }
+
+//getters
+
+ int vector::getDimension(){
+  return dimension; 
+ }
+
+ double vector::getElemen(int unsigned pos){
+	if(pos>=0 && pos<=dimension){
+    return elementos[pos];
+	}else{
+		return 99999;
+	}
+ }
+
+ double vector::mayorElem(){
+	 double mayE = this->getElemen(0);
+	  for(int unsigned i=1;i<this->dimension;i++){
+      if(this->getElemen(i) > mayE){
+				mayE = this->getElemen(i);
+			}
+		}
+	return mayE;	
  }
