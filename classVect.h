@@ -8,11 +8,20 @@ class vector{
     public:
      //contructor 
        vector(); 
+			 
      //GETTERS
-      int getDimension();
-
+      int getDimension();	
       double getElemen(int unsigned pos);
 			double mayorElem();
+			int unsigned frecElem(double n);
+	   	//Busquedas	
+        int unsigned busqLineal(double n);
+				int unsigned busqLinealOrdAsc(double n);
+				
+				
+      //Ordenamientos
+        			  
+
      //SETTERS
       void setDimension(int unsigned dim2);
       void modElemen(int unsigned pos, double ele);
@@ -81,4 +90,38 @@ class vector{
 			}
 		}
 	return mayE;	
+ }
+
+ int unsigned vector::frecElem(double n){
+   int unsigned i = 0;
+	 int unsigned cont = 0;
+	  while(i<this->dimension){
+       if(this->getElemen(i) == n){
+						cont = cont + 1;
+			 }
+			i++; 
+		}
+	return cont;	
+ }
+
+ int unsigned vector::busqLineal(double n){
+		int unsigned i = 0;
+		  while(i<this->dimension && (this->getElemen(i) == n)){
+         i++;
+			}
+  if(this->getElemen(i) == n && i < dimension){
+		 return i;
+	}else{
+		return 999999;
+	} 
+ }
+
+ int unsigned vector::busqLinealOrdAsc(double n){
+		int unsigned i = 0;
+			while(i < this->dimension && this->getElemen(i) <= n){
+				i++;
+			}		  
+		if(i < this->dimension && this->getElemen(i) == n){
+			return i; 
+		}else return 99999;	
  }
