@@ -23,8 +23,10 @@ int main(){
   std::cout<<std::endl;
   std::cout<<leerVect();
   std::cout<<std::endl;
-	std::cout<<x.busqLineal(2);
-	std::cout<<std::endl;
+	x.exchangeSort();
+  std::cout<<std::endl;
+  std::cout<<leerVect();
+  std::cout<<std::endl;	
   return 0;
 }
 
